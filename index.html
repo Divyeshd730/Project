@@ -28,6 +28,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 15px;
     }
 
     header h2 {
@@ -37,7 +38,7 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 18px;
+      margin: 0 8px;
     }
 
     nav a:hover {
@@ -66,9 +67,12 @@
       color: #38bdf8;
     }
 
-    .hero p {
+    .hero p,
+    #about p,
+    #contact p {
       color: #cbd5e1;
-      max-width: 600px;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
     .btn {
@@ -82,12 +86,18 @@
       font-weight: bold;
     }
 
+    .btn:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+    }
+
     h2 {
       margin-bottom: 24px;
       color: #38bdf8;
     }
 
-    .skills, .projects {
+    .skills,
+    .projects {
       display: flex;
       justify-content: center;
       gap: 18px;
@@ -106,16 +116,42 @@
       margin-bottom: 10px;
     }
 
-    .meme img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: 12px;
-      margin: 15px auto;
+    .card p {
+      color: #cbd5e1;
+    }
+
+    /* Profile image */
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #38bdf8;
+      margin: 10px auto 20px;
       display: block;
     }
 
-    .meme p, #about p, #contact p {
+    /* Uploaded meme image */
+    .meme-container {
+      max-width: 620px;
+      margin: 25px auto 0;
+      padding: 15px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 16px;
+    }
+
+    .meme-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .meme-caption {
+      margin-top: 16px;
       color: #cbd5e1;
+      font-size: 1.05rem;
     }
 
     footer {
@@ -127,11 +163,16 @@
 
     @media (max-width: 600px) {
       header {
-        gap: 12px;
+        justify-content: center;
+        text-align: center;
       }
 
-      nav a {
-        margin: 0 10px 0 0;
+      nav {
+        line-height: 2.2;
+      }
+
+      section {
+        padding: 50px 6%;
       }
     }
   </style>
@@ -139,8 +180,10 @@
 
 <body>
 
+  <!-- Navigation -->
   <header>
     <h2>MyPortfolio.</h2>
+
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -151,19 +194,32 @@
     </nav>
   </header>
 
+  <!-- Home -->
   <section class="hero" id="home">
     <h1>Hello, I'm <span>Your Name</span></h1>
     <h3>Student | Developer | Creative Thinker</h3>
+
     <p>
-      Welcome to my personal portfolio! I love learning new
+      Welcome to my personal portfolio! I enjoy learning new
       technologies, building cool projects, and creating things
       that make people smile.
     </p>
+
     <a href="#projects" class="btn">Explore My Work</a>
   </section>
 
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
+
+    <!-- Optional profile photo: save your photo as myphoto.jpg -->
+    <img
+      src="myphoto.jpg"
+      alt="My profile photo"
+      class="profile-img"
+      onerror="this.style.display='none'"
+    >
+
     <p>
       I'm a passionate learner interested in web development,
       technology, and creative problem-solving. This website
@@ -171,17 +227,21 @@
     </p>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <h2>My Skills</h2>
+
     <div class="skills">
       <div class="card">
         <h3>HTML</h3>
         <p>Creating website structures.</p>
       </div>
+
       <div class="card">
         <h3>CSS</h3>
         <p>Designing beautiful websites.</p>
       </div>
+
       <div class="card">
         <h3>JavaScript</h3>
         <p>Making websites interactive.</p>
@@ -189,17 +249,21 @@
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>My Projects</h2>
+
     <div class="projects">
       <div class="card">
         <h3>Portfolio Website</h3>
         <p>A personal website built using HTML and CSS.</p>
       </div>
+
       <div class="card">
         <h3>Mini Calculator</h3>
         <p>A simple calculator project using JavaScript.</p>
       </div>
+
       <div class="card">
         <h3>Creative Ideas</h3>
         <p>Small experiments to improve my coding skills.</p>
@@ -207,37 +271,44 @@
     </div>
   </section>
 
-  <section class="meme" id="meme">
-    <h2>Developer Life 😂</h2>
-    <p>Me: I'll fix this bug in 5 minutes. Also me, 3 hours later:</p>
+  <!-- Your uploaded anime meme -->
+  <section id="meme">
+    <h2>My Meme Collection 😂</h2>
 
-    <!-- Online meme image -->
-    <img
-      src="https://i.imgflip.com/1bij.jpg"
-      alt="Distracted boyfriend meme"
-      loading="lazy"
-    >
+    <p>When the code finally works after 100 errors...</p>
 
-    <p>It's not a bug, it's an unexpected feature! 😎</p>
+    <div class="meme-container">
+      <img
+        src="meme.png"
+        alt="Anime character shouting Faaahhhhh in a purple action scene"
+      >
+
+      <p class="meme-caption">
+        Me debugging my code at 3 AM 💀🔥
+      </p>
+    </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Interested in working together? Let's connect!</p>
+
+    <p>
+      Interested in working together? Let's connect!
+    </p>
+
     <a class="btn" href="mailto:yourname@example.com">
       Send Me an Email
     </a>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2026 Your Name | Made with ❤️ and code</p>
+    <p id="copyright"></p>
   </footer>
 
   <script>
-    console.log("Welcome to my personal portfolio!");
-
-    // Highlight the current year automatically
-    document.querySelector("footer p").textContent =
+    document.getElementById("copyright").textContent =
       `© ${new Date().getFullYear()} Your Name | Made with ❤️ and code`;
   </script>
 
